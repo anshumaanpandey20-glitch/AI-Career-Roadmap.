@@ -1,0 +1,395 @@
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  color: #172033;
+  background: #f8fafc;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 7%;
+  background: #ffffff;
+  border-bottom: 1px solid #e5eaf1;
+}
+
+.logo {
+  color: #172033;
+  font-size: 21px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #4f46e5;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: #475569;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: #4f46e5;
+}
+
+.nav-button,
+.primary-button {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 9px;
+  background: #4f46e5;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-button:hover,
+.primary-button:hover {
+  background: #3730a3;
+}
+
+.hero {
+  padding: 100px 20px 90px;
+  text-align: center;
+  background: linear-gradient(180deg, #eef2ff, #f8fafc);
+}
+
+.eyebrow {
+  color: #4f46e5;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  margin: 22px 0;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.15;
+}
+
+.hero-description {
+  max-width: 650px;
+  margin: 0 auto 28px;
+  color: #64748b;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.hero-note {
+  margin-top: 22px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.features {
+  padding: 75px 7%;
+  text-align: center;
+}
+
+.features h2,
+.start-section h2 {
+  font-size: clamp(25px, 3vw, 36px);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 38px;
+  text-align: left;
+}
+
+.feature-card {
+  padding: 28px;
+  border: 1px solid #e5eaf1;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.feature-icon {
+  font-size: 32px;
+}
+
+.feature-card h3 {
+  margin-top: 18px;
+  font-size: 19px;
+}
+
+.feature-card p,
+.start-section p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.start-section {
+  margin: 0 7% 70px;
+  padding: 55px 20px;
+  border-radius: 20px;
+  background: #eef2ff;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 7%;
+  background: #ffffff;
+  color: #64748b;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .hero {
+    padding: 70px 20px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.profile-section {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-form {
+  display: grid;
+  gap: 12px;
+  max-width: 600px;
+  margin: 30px auto 0;
+  text-align: left;
+}
+
+.profile-form label {
+  color: #172033;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.profile-form input,
+.profile-form select,
+.profile-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #172033;
+  font: inherit;
+}
+
+.profile-form input:focus,
+.profile-form select:focus,
+.profile-form textarea:focus {
+  outline: 2px solid #818cf8;
+  border-color: #4f46e5;
+}
+
+.profile-form textarea {
+  resize: vertical;
+}
+
+.profile-result {
+  max-width: 600px;
+  margin: 30px auto 0;
+  padding: 24px;
+  border: 1px solid #c7d2fe;
+  border-radius: 12px;
+  background: #ffffff;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.profile-result h3 {
+  margin-top: 0;
+}
+
+.roadmap-result {
+  max-width: 900px;
+  margin: 40px auto 0;
+  text-align: left;
+}
+
+.roadmap-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.roadmap-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.roadmap-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-weight: 700;
+}
+
+.roadmap-content {
+  flex: 1;
+}
+
+.roadmap-content h3 {
+  margin: 0 0 8px;
+  color: #172033;
+}
+
+.roadmap-content p {
+  margin: 0 0 12px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.roadmap-duration {
+  color: #4338ca;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .roadmap-card {
+    padding: 16px;
+    gap: 12px;
+  }
+}
+/* Roadmap progress summary */
+.progress-summary {
+  margin: 28px 0;
+  padding: 20px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.progress-labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.progress-labels strong {
+  color: #4338ca;
+  font-size: 24px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  background: #e2e8f0;
+  border-radius: 999px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #16a34a;
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+.progress-count {
+  margin: 10px 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Completed learning step */
+.roadmap-card.completed {
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.step-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  cursor: pointer;
+  color: #334155;
+  font-size: 14px;
+}
+
+.step-checkbox input {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  accent-color: #16a34a;
+}
+
+.roadmap-finished {
+  margin-top: 24px;
+  padding: 16px;
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .progress-summary {
+    padding: 16px;
+  }
+
+  .progress-labels strong {
+    font-size: 20px;
+  }
+}
