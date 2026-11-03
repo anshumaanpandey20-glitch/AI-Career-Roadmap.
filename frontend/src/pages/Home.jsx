@@ -1,8 +1,16 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { getCurrentUser, logoutUser } from "../services/authService";
 
 export default function Home() {
+  const [user, setUser] = useState(getCurrentUser);
+
+  function handleLogout() {
+    logoutUser();
+    setUser(null);
+  }
+
   return (
     <div className="app">
       <header className="navbar">
@@ -12,13 +20,30 @@ export default function Home() {
 
         <nav className="nav-links">
           <Link to="/">Home</Link>
+          <Link to="/courses">Courses</Link>
+          <Link to="/guide">Beginner Guide</Link>
+          <Link to="/recommendations">Career Recommendations</Link>
+          {user ? (
+            <>
+              <Link to="/history">Learning History</Link>
+              <button className="nav-link-button" onClick={handleLogout}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
           <a href="#features">Features</a>
           <a href="#about">About</a>
         </nav>
 
-        <Link className="nav-button" to="/start">
-          Get Started
-        </Link>
+        {user ? (
+          <span className="nav-user">Hi, {user.name}</span>
+        ) : (
+          <Link className="nav-button" to="/login">
+            Login
+          </Link>
+        )}
       </header>
 
       <main>
@@ -41,6 +66,10 @@ export default function Home() {
 
           <Link className="primary-button" to="/start">
             Explore Your Roadmap →
+          </Link>
+
+          <Link className="primary-button" to="/recommendations">
+            Find My Career Path
           </Link>
 
           <p className="hero-note">

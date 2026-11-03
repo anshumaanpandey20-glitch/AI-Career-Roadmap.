@@ -1,229 +1,196 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { courses } from "../data/courses";
 import "../App.css";
-import { createStudentProfile } from "../services/studentService";
+
+const careerGoals = {
+  "web-development": [
+    "Frontend Developer",
+    "Backend Developer",
+    "Full Stack Developer",
+    "Web Designer",
+    "Freelance Web Developer",
+  ],
+  python: [
+    "Python Developer",
+    "Software Developer",
+    "Automation Engineer",
+    "Backend Developer",
+  ],
+  "data-science": [
+    "Data Scientist",
+    "Data Analyst",
+    "Machine Learning Engineer",
+    "Business Intelligence Analyst",
+  ],
+  "artificial-intelligence": [
+    "AI Engineer",
+    "Machine Learning Engineer",
+    "AI Researcher",
+    "Deep Learning Engineer",
+  ],
+  "graphic-design": [
+    "Graphic Designer",
+    "UI Designer",
+    "Brand Designer",
+    "Freelance Designer",
+  ],
+  "digital-marketing": [
+    "Digital Marketing Specialist",
+    "SEO Specialist",
+    "Social Media Manager",
+    "Content Marketer",
+  ],
+  cybersecurity: [
+    "Cybersecurity Analyst",
+    "Ethical Hacker",
+    "Security Engineer",
+    "Network Security Specialist",
+  ],
+  // Business analytics is the available business course; no separate BBT course exists.
+  "excel-analytics": [
+    "Business Analyst",
+    "Data Analyst",
+    "MIS Executive",
+    "Financial Analyst",
+    "Business Intelligence Analyst",
+  ],
+};
 
 export default function Profile() {
   const navigate = useNavigate();
 
-  const [profile, setProfile] = useState({
-    name: "",
-    education: "",
-    course: "",
-    semester: "",
-    skills: "",
-    careerGoal: "",
-  });
+  const [selectedCourse, setSelectedCourse] = useState(
+    courses[0]?.id || ""
+  );
+  const [careerGoal, setCareerGoal] = useState("");
+  const [education, setEducation] = useState("School Student");
+  const [error, setError] = useState("");
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const selectedCourseData = courses.find(
+    (course) => course.id === selectedCourse
+  );
 
-  function handleChange(event) {
-    const { name, value } = event.target;
+  const availableGoals = careerGoals[selectedCourse] || [
+    "Learn a new skill",
+    "Get a job",
+    "Start freelancing",
+  ];
 
-    setProfile((previous) => ({
-      ...previous,
-      [name]: value,
-    }));
+  function handleCourseChange(event) {
+    setSelectedCourse(event.target.value);
+    setCareerGoal("");
   }
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
 
-    if (isSubmitting) return;
+    if (!selectedCourse || !careerGoal) {
+      setError("Please select a course and career goal.");
+      return;
+    }
 
-    setIsSubmitting(true);
+    const selectedCourseData = courses.find(
+      (course) => course.id === selectedCourse
+    );
 
-    const profileData = {
-      ...profile,
-      skills: profile.skills
-        .split(",")
-        .map((skill) => skill.trim())
-        .filter(Boolean),
+    const roadmapProfile = {
+      education,
+      courseId: selectedCourse,
+      courseName: selectedCourseData?.title,
+      careerGoal,
+      createdAt: new Date().toISOString(),
     };
 
-    try {
-      const result = await createStudentProfile(profileData);
+    localStorage.setItem(
+      "learnerRoadmapProfile",
+      JSON.stringify(roadmapProfile)
+    );
 
-      console.log("Backend response:", result);
-
-      sessionStorage.setItem(
-        "learnerProfile",
-        JSON.stringify(profileData)
-      );
-
-      navigate("/roadmap", {
-        state: {
-          profile: profileData,
-        },
-      });
-    } catch (error) {
-      console.error("Profile submission failed:", error);
-
-      alert(
-        "Could not submit your profile. Please check that the backend is running and try again."
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
+    navigate(
+      `/course/${selectedCourse}?goal=${encodeURIComponent(careerGoal)}`
+    );
   }
 
   return (
     <div className="app">
-      <header className="navbar">
-        <Link className="logo" to="/">
-          Learner<span>Roadmap</span> AI
+      <nav className="navbar">
+        <Link to="/" className="logo">
+          LearnerRoadmap AI
         </Link>
 
-        <nav className="nav-links">
+        <div className="nav-links">
           <Link to="/">Home</Link>
-          <a href="/#features">Features</a>
-          <a href="/#about">About</a>
-        </nav>
-
-        <Link className="nav-button" to="/">
-          Back to Home
-        </Link>
-      </header>
+          <Link to="/courses">Courses</Link>
+          <Link to="/guide">Beginner Guide</Link>
+        </div>
+      </nav>
 
       <main>
-        <section
-          className="start-section profile-section"
-          id="start"
-        >
-          <p className="eyebrow">
-            YOUR PERSONAL LEARNING PLAN
-          </p>
-
-          <h2>Tell us about yourself</h2>
+        <section className="start-section profile-section">
+          <h1>Build Your Learning Roadmap</h1>
 
           <p>
-            Share your current education, skills, and career goal
-            to get started.
+            Choose your course and career goal to discover your
+            personalized learning path.
           </p>
 
-          <form
-            className="profile-form"
-            onSubmit={handleSubmit}
-          >
-            <label htmlFor="name">Your name</label>
-            <input
-              id="name"
-              name="name"
-              value={profile.name}
-              onChange={handleChange}
-              placeholder="Enter your name"
-              required
-            />
+          <form className="profile-form" onSubmit={handleSubmit}>
+              <label htmlFor="education">Your Education Level</label>
+              <select
+                id="education"
+                value={education}
+                onChange={(event) => setEducation(event.target.value)}
+              >
+                <option>School Student</option>
+                <option>Open College Student</option>
+                <option>College Student</option>
+                <option>Graduate</option>
+                <option>Self Learner</option>
+              </select>
 
-            <label htmlFor="education">
-              Education level
-            </label>
-            <select
-              id="education"
-              name="education"
-              value={profile.education}
-              onChange={handleChange}
-              required
-            >
-              <option value="">
-                Choose your education level
-              </option>
-              <option value="School">School student</option>
-              <option value="Open College">
-                Open-college student
-              </option>
-              <option value="Regular College">
-                Regular college student
-              </option>
-              <option value="Independent Learner">
-                Independent learner
-              </option>
-            </select>
+              <label htmlFor="course">Select Your Course</label>
+              <select
+                id="course"
+                value={selectedCourse}
+                onChange={handleCourseChange}
+                required
+              >
+                {courses.map((course) => (
+                  <option key={course.id} value={course.id}>
+                    {course.title}
+                  </option>
+                ))}
+              </select>
 
-            <label htmlFor="course">
-              Course or class
-            </label>
-            <input
-              id="course"
-              name="course"
-              value={profile.course}
-              onChange={handleChange}
-              placeholder="e.g. BCA or Class 12"
-              required
-            />
+              <label htmlFor="careerGoal">Select Your Career Goal</label>
+              <select
+                id="careerGoal"
+                value={careerGoal}
+                onChange={(event) => setCareerGoal(event.target.value)}
+                required
+              >
+                <option value="">Choose your career goal</option>
 
-            <label htmlFor="semester">
-              Semester or class year
-            </label>
-            <input
-              id="semester"
-              name="semester"
-              value={profile.semester}
-              onChange={handleChange}
-              placeholder="e.g. Semester 3 or Class 12"
-              required
-            />
+                {availableGoals.map((goal) => (
+                  <option key={goal} value={goal}>
+                    {goal}
+                  </option>
+                ))}
+              </select>
 
-            <label htmlFor="skills">
-              Current skills
-            </label>
-            <textarea
-              id="skills"
-              name="skills"
-              value={profile.skills}
-              onChange={handleChange}
-              placeholder="e.g. HTML, CSS, basic Python"
-              rows={3}
-              required
-            />
+              {error && (
+                <p className="auth-error" role="alert">
+                  {error}
+                </p>
+              )}
 
-            <label htmlFor="careerGoal">
-              Career goal
-            </label>
-            <select
-              id="careerGoal"
-              name="careerGoal"
-              value={profile.careerGoal}
-              onChange={handleChange}
-              required
-            >
-              <option value="">
-                Choose your career goal
-              </option>
-              <option value="Web Developer">
-                Web Developer
-              </option>
-              <option value="AI/ML Engineer">
-                AI/ML Engineer
-              </option>
-              <option value="Data Analyst">
-                Data Analyst
-              </option>
-              <option value="Cybersecurity Specialist">
-                Cybersecurity Specialist
-              </option>
-              <option value="Not Sure Yet">
-                Not sure yet
-              </option>
-            </select>
-
-            <button
-              className="primary-button"
-              type="submit"
-              disabled={isSubmitting}
-            >
-              {isSubmitting
-                ? "Submitting..."
-                : "Submit Profile"}
-            </button>
+              <button type="submit" className="primary-button">
+                Generate My Roadmap →
+              </button>
           </form>
         </section>
       </main>
-
-      <footer className="footer" id="about">
-        <p>© 2026 Learner Roadmap AI</p>
-        <p>Learn today. Grow tomorrow.</p>
-      </footer>
     </div>
   );
 }
