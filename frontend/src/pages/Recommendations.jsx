@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { courses } from "../data/courses";
-import "../App.css";
+import "../css/recommendations.css";
 
 export default function Recommendations() {
   const [interest, setInterest] = useState("Technology");

@@ -1,0 +1,68 @@
+.hero {
+  padding: 100px 20px 90px;
+  text-align: center;
+  background: linear-gradient(180deg, #eef2ff, #f8fafc);
+}
+
+.hero h1 {
+  margin: 22px 0;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.15;
+}
+
+.hero-description {
+  max-width: 650px;
+  margin: 0 auto 28px;
+  color: #64748b;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.hero-note {
+  margin-top: 22px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.features {
+  padding: 75px 7%;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: clamp(25px, 3vw, 36px);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 38px;
+  text-align: left;
+}
+
+.feature-card {
+  padding: 28px;
+  border: 1px solid #e5eaf1;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.feature-icon {
+  font-size: 32px;
+}
+
+.feature-card h3 {
+  margin-top: 18px;
+  font-size: 19px;
+}
+
+.feature-card p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .hero {padding: 70px 20px; }
+  .feature-grid {grid-template-columns: 1fr; }
+}

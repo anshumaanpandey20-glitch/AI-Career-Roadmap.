@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { courses } from "../data/courses";
-import "../App.css";
+import "../css/profile.css";
 
 const careerGoals = {
   "web-development": [

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { roadmaps } from "../data/rosdmap.js";
-import "../App.css";
+import "../css/roadmap.css";
 
 export default function Roadmap() {
   const location = useLocation();

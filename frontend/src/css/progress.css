@@ -1,0 +1,223 @@
+.progress-page {
+  min-height: 100vh;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px 72px;
+  color: #172033;
+}
+
+.progress-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.progress-header h1 {
+  margin: 0 0 10px;
+  font-size: clamp(32px, 5vw, 46px);
+}
+
+.progress-header p,
+.progress-card p,
+.course-progress-card p,
+.next-lesson p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.progress-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.progress-card {
+  padding: 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.progress-card > span {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.progress-card h2 {
+  margin: 12px 0;
+  font-size: 32px;
+}
+
+.progress-card p {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  margin-top: 16px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e2e8f0;
+}
+
+.progress-bar > div {
+  height: 100%;
+  border-radius: inherit;
+  background: #4f46e5;
+  transition: width 0.2s ease;
+}
+
+.progress-course {
+  display: grid;
+  gap: 8px;
+  max-width: 420px;
+  margin: 36px 0 22px;
+}
+
+.progress-course label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.progress-course select {
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #172033;
+  font: inherit;
+}
+
+.course-progress-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.course-progress-card h2,
+.course-progress-card p {
+  margin: 0;
+}
+
+.course-progress-card p {
+  margin-top: 6px;
+}
+
+.course-progress-card > strong {
+  color: #4338ca;
+  font-size: 28px;
+}
+
+.progress-bar.large {
+  height: 12px;
+  margin: 14px 0 22px;
+}
+
+.next-lesson {
+  margin: 22px 0;
+  padding: 20px 22px;
+  border: 1px solid #c7d2fe;
+  border-radius: 14px;
+  background: #eef2ff;
+}
+
+.next-lesson h3 {
+  margin: 0 0 8px;
+}
+
+.next-lesson p {
+  margin: 0;
+}
+
+.lesson-heading {
+  margin: 32px 0 16px;
+}
+
+.lesson-list {
+  display: grid;
+  gap: 10px;
+}
+
+.lesson-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.lesson-item.completed {
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.lesson-item input {
+  width: 18px;
+  height: 18px;
+  accent-color: #16a34a;
+}
+
+.lesson-copy {
+  display: grid;
+  flex: 1;
+  gap: 4px;
+}
+
+.lesson-copy small {
+  color: #64748b;
+}
+
+.lesson-status {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.lesson-item.completed .lesson-status {
+  color: #166534;
+  font-weight: 700;
+}
+
+.reset-progress {
+  margin-top: 22px;
+  padding: 11px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #b91c1c;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.reset-progress:hover {
+  background: #fef2f2;
+}
+
+@media (max-width: 700px) {
+  .progress-page {
+    padding: 36px 6% 52px;
+  }
+
+  .progress-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-item {
+    align-items: flex-start;
+  }
+
+  .lesson-status {
+    display: none;
+  }
+}

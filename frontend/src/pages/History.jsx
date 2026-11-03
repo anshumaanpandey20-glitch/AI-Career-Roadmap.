@@ -4,7 +4,7 @@ import {
   getLearningHistory,
   clearLearningHistory,
 } from "../utils/history";
-import "../App.css";
+import "../css/history.css";
 
 export default function History() {
   const navigate = useNavigate();
@@ -44,6 +44,7 @@ export default function History() {
           <Link to="/">Home</Link>
           <Link to="/courses">Courses</Link>
           <Link to="/recommendations">Recommendations</Link>
+          <Link to="/progress">Progress Report</Link>
         </div>
       </nav>
 

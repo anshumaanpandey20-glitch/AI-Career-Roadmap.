@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { getCurrentUser, logoutUser } from "../services/authService";
+import "../css/home.css";
 
 export default function Home() {
   const [user, setUser] = useState(getCurrentUser);
@@ -26,6 +27,7 @@ export default function Home() {
           {user ? (
             <>
               <Link to="/history">Learning History</Link>
+              <Link to="/progress">Progress Report</Link>
               <button className="nav-link-button" onClick={handleLogout}>
                 Logout
               </button>
@@ -57,12 +59,6 @@ export default function Home() {
             <br />
             Build your own future.
           </h1>
-
-          <p className="hero-description">
-            Discover personalized learning paths, build practical
-            skills, and prepare for your dream career — whether
-            you study at school, college, or independently.
-          </p>
 
           <Link className="primary-button" to="/start">
             Explore Your Roadmap →

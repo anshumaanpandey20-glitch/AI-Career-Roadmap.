@@ -2,7 +2,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home.jsx";
+import Home from "./pages/home.jsx";
 import Profile from "./pages/Profile.jsx";
 import Roadmap from "./pages/Roadmap.jsx";
 import Courses from "./pages/Courses.jsx";
@@ -11,6 +11,7 @@ import Guide from "./pages/Guide.jsx";
 import Recommendations from "./pages/Recommendations.jsx";
 import Login from "./pages/Login.jsx";
 import History from "./pages/History.jsx";
+import Progress from "./pages/Progress.jsx";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/recommendations" element={<Recommendations />} />
         <Route path="/login" element={<Login />} />
         <Route path="/history" element={<History />} />
+        <Route path="/progress" element={<Progress />} />
       </Routes>
     </BrowserRouter>
   );

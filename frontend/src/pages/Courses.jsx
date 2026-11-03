@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { courses } from "../data/courses";
-import "../App.css";
+import "../css/courses.css";
 
 export default function Courses() {
   return (
@@ -23,17 +23,12 @@ export default function Courses() {
 
         <h1>Explore Courses</h1>
 
-        <p>
-          Discover new skills, follow structured learning roadmaps,
-          and build your future one step at a time.
-        </p>
       </section>
 
       <section className="courses-section">
         <div className="courses-heading">
           <div>
             <h2>Popular Learning Paths</h2>
-            <p>Choose a course that matches your interests.</p>
           </div>
 
           <span className="course-count">

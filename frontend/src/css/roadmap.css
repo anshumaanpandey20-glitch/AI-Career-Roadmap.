@@ -1,0 +1,140 @@
+.roadmap-result {
+  max-width: 900px;
+  margin: 40px auto 0;
+  text-align: left;
+}
+
+.roadmap-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.roadmap-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.roadmap-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-weight: 700;
+}
+
+.roadmap-content {
+  flex: 1;
+}
+
+.roadmap-content h3 {
+  margin: 0 0 8px;
+  color: #172033;
+}
+
+.roadmap-content p {
+  margin: 0 0 12px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.roadmap-duration {
+  color: #4338ca;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .roadmap-card {padding: 16px;
+    gap: 12px; }
+}
+
+.progress-summary {
+  margin: 28px 0;
+  padding: 20px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.progress-labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.progress-labels strong {
+  color: #4338ca;
+  font-size: 24px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  background: #e2e8f0;
+  border-radius: 999px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #16a34a;
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+.progress-count {
+  margin: 10px 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.roadmap-card.completed {
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.step-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  cursor: pointer;
+  color: #334155;
+  font-size: 14px;
+}
+
+.step-checkbox input {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  accent-color: #16a34a;
+}
+
+.roadmap-finished {
+  margin-top: 24px;
+  padding: 16px;
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .progress-summary {padding: 16px; }
+  .progress-labels strong {font-size: 20px; }
+}

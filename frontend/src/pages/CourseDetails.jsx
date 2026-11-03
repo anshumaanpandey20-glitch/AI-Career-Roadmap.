@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import { courses } from "../data/courses";
 import { addLearningHistory } from "../utils/history";
-import "../App.css";
+import "../css/course-details.css";
 
 function getCareerProject(goal, index) {
   const normalizedGoal = goal.toLowerCase();

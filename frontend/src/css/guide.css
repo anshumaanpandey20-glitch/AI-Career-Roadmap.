@@ -1,0 +1,80 @@
+.guide-hero {
+  padding: 72px 20px;
+  text-align: center;
+  background: linear-gradient(180deg, #eef2ff, #f8fafc);
+}
+
+.guide-hero h1 {
+  margin: 0 0 16px;
+  font-size: clamp(34px, 5vw, 52px);
+}
+
+.guide-hero p {
+  max-width: 650px;
+  margin: 0 auto 26px;
+  color: #64748b;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.guide-content {
+  padding: 56px 7%;
+}
+
+.guide-content > h2 {
+  margin: 0 0 28px;
+  text-align: center;
+  font-size: clamp(25px, 3vw, 34px);
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+}
+
+.guide-card {
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.guide-card > span {
+  color: #4f46e5;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.guide-card h3 {
+  margin: 14px 0 8px;
+  font-size: 18px;
+}
+
+.guide-card p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.guide-tip p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.guide-tip {
+  margin: 0 7% 64px;
+  padding: 32px;
+  border: 1px solid #c7d2fe;
+  border-radius: 16px;
+  background: #eef2ff;
+  text-align: center;
+}
+
+.guide-tip h2 {
+  margin-top: 0;
+}
+
+.guide-tip p:last-child {
+  margin-bottom: 0;
+}

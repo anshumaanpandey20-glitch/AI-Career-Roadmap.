@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../App.css";
+import "../css/guide.css";
 
 export default function Guide() {
   return (
@@ -18,10 +18,6 @@ export default function Guide() {
 
       <section className="guide-hero">
         <h1>Don't Know Where to Start?</h1>
-        <p>
-          Your learning journey starts here. Follow these simple steps
-          to build skills and achieve your career goals.
-        </p>
         <Link to="/courses" className="primary-button">
           Explore Courses
         </Link>

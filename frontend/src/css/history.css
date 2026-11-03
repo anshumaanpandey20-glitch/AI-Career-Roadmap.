@@ -1,0 +1,145 @@
+.history-page {
+  min-height: 100vh;
+}
+
+.history-login-prompt {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.history-header {
+  padding: 56px 7%;
+  background: linear-gradient(180deg, #eef2ff, #f8fafc);
+  text-align: center;
+}
+
+.history-header h1 {
+  margin: 0 0 10px;
+  font-size: clamp(30px, 4vw, 42px);
+}
+
+.history-header > p {
+  color: #64748b;
+}
+
+.history-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.logout-button {
+  padding: 11px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #334155;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.clear-history-button {
+  padding: 11px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #334155;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: #f1f5f9;
+}
+
+.clear-history-button:hover {
+  background: #f1f5f9;
+}
+
+.history-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 48px 24px 72px;
+}
+
+.history-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.history-title-row h2 {
+  margin: 0;
+  font-size: clamp(23px, 3vw, 30px);
+}
+
+.history-list {
+  display: grid;
+  gap: 14px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.history-type {
+  color: #4f46e5;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.history-item h3 {
+  margin: 7px 0;
+}
+
+.history-item p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.history-empty p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.history-empty {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  padding: 40px 20px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.history-empty h3 {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .history-content {padding: 40px 6% 56px; }
+  .history-item {align-items: flex-start;
+    flex-direction: column; }
+}
